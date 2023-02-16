@@ -1,26 +1,23 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = "Genre"
-
-    const cols = {
+    let alias = 'Genre';
+    let cols = {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-        } ,
+        },
         name: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING
         },
         ranking: {
-            type: dataTypes.INTEGER,
-           
-        } 
-    }
+            type: dataTypes.INTEGER
+        }
+    };
+    let config = {
+        tableName: 'genres',
+        timestamps: false
+    };
+    const Genre = sequelize.define(alias, cols, config)
 
-    const config = {
-        tableName: "genres",
-        timestamp: false
-    }
-
-    const Genre = sequelize.define(alias,cols, config)
-    return Genre 
+    return Genre
 }
